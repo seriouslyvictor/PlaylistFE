@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
+import { Link, useNavigate } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -44,6 +45,7 @@ export function RegisterForm({
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState(false)
   const login = useAuthStore((state) => state.login)
+  const navigate = useNavigate()
 
   const {
     register,
@@ -67,7 +69,11 @@ export function RegisterForm({
       login(response.usuario)
       setSuccess(true)
       console.log("Registro bem-sucedido:", response)
-      // TODO: Redirect to dashboard after registration
+
+      // Redirect to dashboard after a short delay
+      setTimeout(() => {
+        navigate("/dashboard")
+      }, 1500)
     } catch (err: any) {
       console.error("Erro no registro:", err)
       console.error("Dados do erro:", err.response?.data)
@@ -168,7 +174,7 @@ export function RegisterForm({
                   {isLoading ? "Criando conta..." : "Criar conta"}
                 </Button>
                 <FieldDescription className="text-center">
-                  Já tem uma conta? <a href="#" className="underline">Entre aqui</a>
+                  Já tem uma conta? <Link to="/login" className="underline">Entre aqui</Link>
                 </FieldDescription>
               </Field>
             </FieldGroup>

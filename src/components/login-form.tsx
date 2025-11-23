@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
+import { Link, useNavigate } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -36,6 +37,7 @@ export function LoginForm({
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const login = useAuthStore((state) => state.login)
+  const navigate = useNavigate()
 
   const {
     register,
@@ -53,7 +55,7 @@ export function LoginForm({
       const user = await authService.login(data)
       login(user)
       console.log("Login successful:", user)
-      // TODO: Redirect to dashboard after login
+      navigate("/dashboard")
     } catch (err: any) {
       console.error("Login error:", err)
       const errorMessage =
@@ -116,7 +118,7 @@ export function LoginForm({
                   {isLoading ? "Entrando..." : "Entrar"}
                 </Button>
                 <FieldDescription className="text-center">
-                  Não tem uma conta? <a href="#" className="underline">Cadastre-se</a>
+                  Não tem uma conta? <Link to="/register" className="underline">Cadastre-se</Link>
                 </FieldDescription>
               </Field>
             </FieldGroup>
