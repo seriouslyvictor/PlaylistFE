@@ -1,6 +1,7 @@
 import { useAuthStore } from "@/store/authStore"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { ModeToggle } from "@/components/mode-toggle"
 
 export default function Dashboard() {
   const { user, logout } = useAuthStore()
@@ -13,6 +14,9 @@ export default function Dashboard() {
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-2xl">
+        <div className="flex justify-end mb-4">
+          <ModeToggle />
+        </div>
         <Card>
           <CardHeader>
             <CardTitle>Dashboard</CardTitle>
