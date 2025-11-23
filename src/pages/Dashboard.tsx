@@ -1,8 +1,73 @@
 import { DashboardHeader } from "@/components/layout/DashboardHeader"
 import { AppSidebar } from "@/components/layout/AppSidebar"
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar"
+import { PlaylistHero } from "@/components/playlist/PlaylistHero"
+import { PlaylistTrackList } from "@/components/playlist/PlaylistTrackList"
+import { useAuthStore } from "@/store/authStore"
 
 export default function Dashboard() {
+  const { user } = useAuthStore()
+
+  // Mock data for Lofi playlist
+  const mockTracks = [
+    {
+      id: 1,
+      title: "Midnight Rain",
+      creator: "Lofi Dreams",
+      type: "music" as const,
+      duration: "3:24",
+    },
+    {
+      id: 2,
+      title: "Coffee Shop Vibes",
+      creator: "Chill Beats Studio",
+      type: "music" as const,
+      duration: "4:12",
+    },
+    {
+      id: 3,
+      title: "Peaceful Morning",
+      creator: "Ambient Soundscapes",
+      type: "music" as const,
+      duration: "2:58",
+    },
+    {
+      id: 4,
+      title: "Study Session",
+      creator: "Focus Beats",
+      type: "music" as const,
+      duration: "5:03",
+    },
+    {
+      id: 5,
+      title: "Rainy Day Thoughts",
+      creator: "Lofi Dreams",
+      type: "music" as const,
+      duration: "3:47",
+    },
+    {
+      id: 6,
+      title: "Late Night Coding",
+      creator: "Productivity Sounds",
+      type: "music" as const,
+      duration: "4:28",
+    },
+    {
+      id: 7,
+      title: "Sunset Boulevard",
+      creator: "Chill Beats Studio",
+      type: "music" as const,
+      duration: "3:15",
+    },
+    {
+      id: 8,
+      title: "Deep Focus Mode",
+      creator: "Focus Beats",
+      type: "music" as const,
+      duration: "6:02",
+    },
+  ]
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -10,40 +75,17 @@ export default function Dashboard() {
         <DashboardHeader />
 
         {/* Main content area */}
-        <main className="flex-1">
-          <div className="container py-6">
-            <div className="flex items-center gap-2 mb-4">
-              <SidebarTrigger className="md:hidden" />
-              <h1 className="text-3xl font-bold">Bem-vindo ao Gerenciador de Playlists</h1>
-            </div>
-            <p className="text-muted-foreground mb-8">
-              Organize suas músicas, crie playlists e gerencie seus conteúdos favoritos
-            </p>
+        <main className="flex-1 overflow-y-auto">
+          <PlaylistHero
+            title="Lofi para foco/estudo/relaxamento"
+            description="Músicas relaxantes perfeitas para manter o foco nos estudos ou trabalho"
+            owner={user?.nome || "Você"}
+            trackCount={mockTracks.length}
+            duration="aproximadamente 33 min"
+            coverColor="from-purple-500"
+          />
 
-            {/* Placeholder content - will be replaced with actual dashboard content */}
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <div className="rounded-lg border bg-card p-6">
-                <h3 className="font-semibold mb-2">Suas Playlists</h3>
-                <p className="text-sm text-muted-foreground">
-                  Em breve você poderá visualizar e gerenciar suas playlists aqui
-                </p>
-              </div>
-
-              <div className="rounded-lg border bg-card p-6">
-                <h3 className="font-semibold mb-2">Conteúdos</h3>
-                <p className="text-sm text-muted-foreground">
-                  Explore e adicione novos conteúdos à sua biblioteca
-                </p>
-              </div>
-
-              <div className="rounded-lg border bg-card p-6">
-                <h3 className="font-semibold mb-2">Criadores</h3>
-                <p className="text-sm text-muted-foreground">
-                  Descubra seus artistas e criadores favoritos
-                </p>
-              </div>
-            </div>
-          </div>
+          <PlaylistTrackList tracks={mockTracks} />
         </main>
       </SidebarInset>
     </SidebarProvider>
