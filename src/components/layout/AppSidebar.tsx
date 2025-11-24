@@ -1,4 +1,4 @@
-import { Music, Heart, ListMusic, Mic2, Video, Podcast, Plus } from "lucide-react"
+import { Music, Heart, ListMusic, Mic2, Video, Podcast, Plus, BarChart3 } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -13,8 +13,11 @@ import {
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import { useNavigate } from "react-router-dom"
 
 export function AppSidebar() {
+  const navigate = useNavigate()
+
   // Mock data - will be replaced with actual data from API
   const playlists = [
     { id: 1, name: "Músicas Curtidas", icon: Heart, count: 42 },
@@ -104,6 +107,23 @@ export function AppSidebar() {
                 <SidebarMenuButton>
                   <Mic2 className="h-4 w-4" />
                   <span>Todos os Criadores</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <Separator />
+
+        {/* Analytics Section */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Insights</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton onClick={() => navigate("/analytics")}>
+                  <BarChart3 className="h-4 w-4" />
+                  <span>Analytics</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>

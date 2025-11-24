@@ -5,6 +5,7 @@ import Register from "@/pages/Register"
 import Dashboard from "@/pages/Dashboard"
 import UploadContent from "@/pages/UploadContent"
 import ManageContent from "@/pages/ManageContent"
+import Analytics from "@/pages/Analytics"
 import { ProtectedRoute } from "@/components/ProtectedRoute"
 
 function App() {
@@ -49,6 +50,15 @@ function App() {
           element={
             <ProtectedRoute>
               <ManageContent />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/analytics"
+          element={
+            <ProtectedRoute>
+              <Analytics />
             </ProtectedRoute>
           }
         />
