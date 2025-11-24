@@ -4,6 +4,7 @@ import Login from "@/pages/Login"
 import Register from "@/pages/Register"
 import Dashboard from "@/pages/Dashboard"
 import UploadContent from "@/pages/UploadContent"
+import ManageContent from "@/pages/ManageContent"
 import { ProtectedRoute } from "@/components/ProtectedRoute"
 
 function App() {
@@ -39,6 +40,15 @@ function App() {
           element={
             <ProtectedRoute>
               <UploadContent />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/manage-content"
+          element={
+            <ProtectedRoute>
+              <ManageContent />
             </ProtectedRoute>
           }
         />

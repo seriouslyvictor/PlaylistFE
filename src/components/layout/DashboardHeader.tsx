@@ -77,7 +77,7 @@ export function DashboardHeader() {
                 Adicionar Conteúdo
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate("/manage-content")}>
                 <FolderOpen className="mr-2 h-4 w-4" />
                 Gerenciar Conteúdos
               </DropdownMenuItem>
