@@ -1,4 +1,14 @@
-import { Home, Search, Bell, Download, User } from "lucide-react";
+import {
+  Home,
+  Search,
+  Bell,
+  Download,
+  User,
+  Plus,
+  ListMusic,
+  Upload,
+  FolderOpen,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -47,6 +57,33 @@ export function DashboardHeader() {
 
         {/* Right section - Actions */}
         <div className="flex items-center gap-2">
+          {/* Create menu */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="default" size="sm" className="gap-1">
+                <Plus className="h-4 w-4" />
+                Criar
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuLabel>Criar novo</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <ListMusic className="mr-2 h-4 w-4" />
+                Nova Playlist
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate("/upload")}>
+                <Upload className="mr-2 h-4 w-4" />
+                Adicionar Conteúdo
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <FolderOpen className="mr-2 h-4 w-4" />
+                Gerenciar Conteúdos
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <Button variant="ghost" size="sm" className="hidden md:flex">
             <Download className="mr-2 h-4 w-4" />
             Instalar app

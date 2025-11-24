@@ -23,12 +23,12 @@ export function PlaylistHero({
     <div
       className={cn(
         "relative px-6 pt-16 pb-6",
-        `bg-gradient-to-b ${coverColor} to-background`
+        `bg-linear-to-b ${coverColor} to-background`
       )}
     >
       <div className="flex items-end gap-6">
         {/* Playlist Cover - Using icon instead of image */}
-        <div className="flex h-56 w-56 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-purple-400 to-purple-600 shadow-2xl">
+        <div className="flex h-56 w-56 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-purple-400 to-purple-600 shadow-2xl">
           <Clock className="h-30 w-30 text-white" />
         </div>
 

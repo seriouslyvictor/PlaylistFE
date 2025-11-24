@@ -3,6 +3,7 @@ import { useAuthStore } from "@/store/authStore"
 import Login from "@/pages/Login"
 import Register from "@/pages/Register"
 import Dashboard from "@/pages/Dashboard"
+import UploadContent from "@/pages/UploadContent"
 import { ProtectedRoute } from "@/components/ProtectedRoute"
 
 function App() {
@@ -29,6 +30,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/upload"
+          element={
+            <ProtectedRoute>
+              <UploadContent />
             </ProtectedRoute>
           }
         />
