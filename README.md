@@ -57,13 +57,25 @@ Este é o frontend do sistema de gerenciamento de playlists, um projeto educacio
 
 ### Conteúdos
 - ✅ Suporte para músicas, vídeos e podcasts
-- 🔜 Upload de novos conteúdos
-- 🔜 Gerenciamento de conteúdos
+- ✅ Página de upload de conteúdos com drag & drop
+- ✅ Formulário completo de detalhes do conteúdo
+- ✅ Gerenciamento de conteúdos com tabela filtrada
+- ✅ Filtros por tipo (música, vídeo, podcast)
+- ✅ Busca e ordenação de conteúdos
+- 🔜 Integração com backend para upload real
 
 ### Criadores
 - ✅ Seção de criadores/artistas
 - 🔜 Adicionar novos criadores
 - 🔜 Visualizar conteúdos por criador
+
+### Analytics
+- ✅ Dashboard de estatísticas completo
+- ✅ Métricas principais (total de conteúdos, playlists, reproduções)
+- ✅ Gráfico de tendência de uploads (área)
+- ✅ Gráfico de distribuição por tipo (pizza)
+- ✅ Gráfico de conteúdos mais reproduzidos (barras)
+- ✅ Dados mockados para demonstração
 
 ## 📦 Instalação
 
@@ -121,6 +133,8 @@ PlaylistFE/
 │   ├── components/
 │   │   ├── layout/          # Componentes de layout (Header, Sidebar)
 │   │   ├── playlist/        # Componentes de playlist
+│   │   ├── upload/          # Componentes de upload (UploadArea, ContentDetailsForm)
+│   │   ├── content/         # Componentes de conteúdo (ContentTable)
 │   │   ├── ui/              # Componentes shadcn/ui
 │   │   ├── login-form.tsx
 │   │   ├── register-form.tsx
@@ -129,7 +143,10 @@ PlaylistFE/
 │   ├── pages/               # Páginas da aplicação
 │   │   ├── Dashboard.tsx
 │   │   ├── Login.tsx
-│   │   └── Register.tsx
+│   │   ├── Register.tsx
+│   │   ├── UploadContent.tsx
+│   │   ├── ManageContent.tsx
+│   │   └── Analytics.tsx
 │   ├── services/            # Serviços e chamadas à API
 │   │   ├── api.ts
 │   │   └── auth.service.ts
@@ -249,15 +266,17 @@ rm -rf .vite
 
 ## 🚧 Próximos Passos
 
+- [ ] Conectar upload de conteúdos com backend
 - [ ] Implementar criação de playlists
-- [ ] Adicionar funcionalidade de upload de conteúdos
-- [ ] Página de gerenciamento de conteúdos
+- [ ] Conectar gerenciamento de conteúdos com API
 - [ ] Página de criadores com filtros
-- [ ] Player de áudio/vídeo
-- [ ] Busca funcional
-- [ ] Favoritos/curtidas
+- [ ] Integrar analytics com dados reais (se backend suportar)
+- [ ] Player de áudio/vídeo funcional
+- [ ] Busca funcional com API
+- [ ] Sistema de favoritos/curtidas
 - [ ] Compartilhamento de playlists
 - [ ] Drag & drop para reordenar músicas
+- [ ] Paginação nas tabelas
 - [ ] Testes unitários e E2E
 
 ## 📚 Recursos e Documentação
